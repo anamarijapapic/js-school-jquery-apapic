@@ -1,0 +1,70 @@
+/* =============================================================================
+   MAIN
+   ========================================================================== */
+
+/**
+ * This is main SCSS file. We import every partial into this file. Do not remove
+ * partials if you don't need them, comment them out instead.
+ */
+
+/* Charset
+   ========================================================================== */
+
+@charset "UTF-8";
+
+
+
+/* Tools
+   ========================================================================== */
+
+@import 'fjaka/tools/all';
+
+
+
+/* Settings
+   ========================================================================== */
+
+@import 'fjaka/settings/all';
+@import 'settings/breakpoints';
+@import 'settings/buttons';
+@import 'settings/colors';
+@import 'settings/grid';
+@import 'settings/hamburger-icon';
+@import 'settings/offcanvas';
+@import 'settings/spacing';
+@import 'settings/typography';
+
+
+
+/* Generic
+   ========================================================================== */
+
+@import 'fjaka/generic/all';
+
+
+
+/* Elements
+   ========================================================================== */
+
+@import 'fjaka/elements/all';
+
+
+
+/* Objects
+   ========================================================================== */
+
+@import 'fjaka/objects/all';
+
+
+
+/* Components
+   ========================================================================== */
+
+@import 'fjaka/components/all';
+
+
+
+/* Utilities
+   ========================================================================== */
+
+@import 'fjaka/utilities/all';

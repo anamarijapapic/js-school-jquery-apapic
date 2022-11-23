@@ -1,0 +1,202 @@
+{
+  "clean": {
+    "html": [
+      {
+        "source": "public/html"
+      }
+    ]
+  },
+  "html": {
+    "html": [
+      {
+        "source": "src/html",
+        "destination": "public/html"
+      }
+    ],
+    "wordpress": [
+      {
+        "source": "src/html",
+        "destination": "public/wp-content/themes/replaceme/assets",
+        "globPattern": ["!**/*.{php,html}"]
+      }
+    ]
+  },
+  "sass": {
+    "html": [
+      {
+        "source": "src/html/sass/main.scss",
+        "destination": "public/html/css"
+      }
+    ],
+    "wordpress": [
+      {
+        "source": "src/html/sass/main.scss",
+        "destination": "public/wp-content/themes/replaceme/assets/css"
+      },
+      {
+        "source": "src/html/sass/main-block-editor.scss",
+        "destination": "public/wp-content/themes/replaceme/assets/css",
+        "additionalSourcesToWatch": [
+          "src/html/sass/main.scss"
+        ]
+      }
+    ]
+  },
+  "js": {
+    "html": [
+      {
+        "source": "src/html/js/main.js",
+        "destination": "public/html/js",
+        "globals": {
+          "jquery": "window.jQuery"
+        },
+        "external": [
+          "jquery"
+        ]
+      }
+    ],
+    "wordpress": [
+      {
+        "source": "src/html/js/main.js",
+        "destination": "public/wp-content/themes/replaceme/assets/js",
+        "globals": {
+          "jquery": "window.jQuery"
+        },
+        "external": [
+          "jquery"
+        ]
+      }
+    ]
+  },
+  "svg": {
+    "html": [
+      {
+        "source": "src/html/svg/",
+        "destination": "public/html/sprite"
+      }
+    ],
+    "wordpress": [
+      {
+        "source": "src/html/svg/",
+        "destination": "public/wp-content/themes/replaceme/assets/sprite"
+      }
+    ]
+  },
+  "wordpress": {
+    "default": [
+      {
+        "localComposer": true,
+        "symlinkedBuild": true,
+        "remove": [
+          "**/readme.txt",
+          "**/license.txt",
+          "wp-content/plugins/hello.php"
+        ]
+      }
+    ],
+    "wpengine": [
+      {
+        "localComposer": true,
+        "symlinkedBuild": false,
+        "remove": [
+          ".htaccess",
+          "wp-config.php",
+          "html/",
+          "**/readme.txt",
+          "**/license.txt",
+          "wp-content/uploads",
+          "wp-content/plugins/hello.php"
+        ]
+      }
+    ]
+  },
+  "i18n": {
+    "wordpress" : [
+      {
+        "source": "src/wp-content/themes/replaceme",
+        "destination": "public/wp-content/themes/replaceme/languages",
+        "domain": "replaceme",
+        "package": "Replace Me"
+      }
+    ]
+  },
+  "gitdeploy":{
+    "production": [
+      {
+        "target": "git@git.wpengine.com:production/replaceme.git"
+      }
+    ],
+    "staging": [
+      {
+        "target": "git@git.wpengine.com:production/replacemestg.git"
+      }
+    ]
+  },
+  "devcert": {
+    "default": [
+      {
+        "domain": "replaceme.test",
+        "keyDestination": "docker/nginx/ssl/key.pem",
+        "certDestination": "docker/nginx/ssl/cert.pem",
+        "caDestination": "docker/php/certificate-authority/certificate.cert"
+      }
+    ]
+  },
+  "jobs": {
+    "devcert": [
+      "devcert:default"
+    ],
+    "build": [
+      "clean:html",
+      "html:html",
+      {
+        "parallel": [
+          "svg:html",
+          "sass:html",
+          "js:html"
+        ]
+      }
+    ],
+    "watch": {
+      "parallel": [
+        "html:html@watch",
+        "sass:html@watch",
+        "js:html@watch",
+        "svg:html@watch"
+      ]
+    },
+    "build:wordpress": [
+      "wordpress:default",
+      "html:wordpress",
+      {
+        "parallel": [
+          "sass:wordpress",
+          "js:wordpress",
+          "svg:wordpress",
+          "i18n:wordpress"
+        ]
+      }
+    ],
+    "watch:wordpress": {
+      "parallel": [
+        "html:wordpress@watch",
+        "sass:wordpress@watch",
+        "js:wordpress@watch",
+        "svg:wordpress@watch"
+      ]
+    },
+    "build:wpengine": [
+      "wordpress:wpengine",
+      "html:wordpress",
+      "sass:wordpress",
+      "js:wordpress",
+      "svg:wordpress"
+    ],
+    "deploy:staging": [
+      "gitdeploy:staging"
+    ],
+    "deploy:production": [
+      "gitdeploy:production"
+    ]
+  }
+}

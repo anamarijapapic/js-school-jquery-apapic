@@ -1,0 +1,38 @@
+{
+  "name": "web-starter",
+  "version": "0.1.0",
+  "description": "A project template for frontend and wordpress development.",
+  "main": "index.js",
+  "scripts": {
+    "addcert": "node node_modules/@runforest/run/index.js devcert",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node node_modules/@runforest/run/index.js build",
+    "watch": "node node_modules/@runforest/run/index.js watch",
+    "build:wordpress": "node node_modules/@runforest/run/index.js build:wordpress",
+    "build:wpengine": "node node_modules/@runforest/run/index.js build:wpengine --verbose",
+    "watch:wordpress": "node node_modules/@runforest/run/index.js watch:wordpress",
+    "deploy:staging": "node node_modules/@runforest/run/index.js deploy:staging --verbose",
+    "deploy:production": "node node_modules/@runforest/run/index.js deploy:production --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com:_agilo/backend-internship/web-starter.git"
+  },
+  "author": "ivo@agilo.com",
+  "license": "ISC",
+  "homepage": "https://gitlab.com/_agilo/backend-internship/web-starter",
+  "dependencies": {
+    "@runforest/devcert": "^1.0.0",
+    "@runforest/fs": "^2.0.0",
+    "@runforest/gitdeploy": "^3.0.0",
+    "@runforest/html": "^2.0.0",
+    "@runforest/i18n": "^2.0.0",
+    "@runforest/js": "^3.2.0",
+    "@runforest/run": "^2.0.0",
+    "@runforest/sass": "^2.2.1",
+    "@runforest/svg": "^2.0.0",
+    "@runforest/wordpress": "^2.0.0",
+    "fjaka": "^2.4.0",
+    "svgxuse": "^1.2.6"
+  }
+}

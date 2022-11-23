@@ -1,0 +1,54 @@
+version: '2'
+services:
+    nginx:
+        build: ./docker/nginx/
+        ports:
+            - 80:80
+            - 443:443
+        links:
+            - php
+        volumes:
+            - ./public:/var/www/html:cached
+            - ./shared:/var/www/shared:delegated
+            - ./src:/var/www/src:cached
+        container_name: replaceme.test
+
+    php:
+        build: ./docker/php/
+        expose:
+            - 9000
+        environment:
+            DB_HOST: db
+            DB_NAME: ${MYSQL_DATABASE}
+            DB_USER: ${MYSQL_USER}
+            DB_PASS: ${MYSQL_PASSWORD}
+            PHP_ENV: ${PHP_ENV}
+        links:
+            - db
+        volumes:
+            - ./public:/var/www/html:cached
+            - ./shared:/var/www/shared:delegated
+            - ./src:/var/www/src:cached
+
+    db:
+        image: mysql:5.6
+        ports:
+            - 3306:3306
+        volumes:
+            - ./db:/docker-entrypoint-initdb.d
+            - ./db:/db-imports
+            - ./docker/data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - 8080:80
+        links:
+            - db
+        environment:
+            PMA_HOST: db

@@ -1,0 +1,51 @@
+{
+    "name": "agilo/web-starter",
+    "description": "Agilo Web Starter",
+    "authors": [
+        {
+            "name": "Ivo Limić",
+            "email": "ivo@agilo.co"
+        }
+    ],
+    "config": {
+        "vendor-dir": "bin/composer_vendor",
+        "secure-http": false
+    },
+    "repositories": [
+        {
+          "type":"composer",
+          "url":"http://wpackagist.org"
+        },
+        {
+          "type": "package",
+          "package": {
+            "dist": {
+              "type": "zip",
+              "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NTgyNzJ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE1LTA2LTE3IDEzOjExOjMz&t=5.12.3"
+            },
+            "name": "advanced-custom-fields/advanced-custom-fields-pro",
+            "type": "wordpress-plugin",
+            "version": "5.12.3"
+          }
+        }
+    ],
+    "require": {
+        "drupal-composer/preserve-paths": "^0.1.4",
+        "johnpbloch/wordpress": "6.0.0",
+        "wpackagist-plugin/query-monitor":"*",
+        "wpackagist-plugin/wp-crontrol":"*"
+    },
+    "extra": {
+        "wordpress-install-dir": "public",
+        "installer-paths": {
+            "public/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "public/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "public/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        },
+        "preserve-paths": [
+            "public/wp-content/plugins/",
+            "public/wp-content/mu-plugins/",
+            "public/wp-content/themes/"
+        ]
+    }
+}
