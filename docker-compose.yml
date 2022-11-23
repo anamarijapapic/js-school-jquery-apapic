@@ -11,7 +11,7 @@ services:
             - ./public:/var/www/html:cached
             - ./shared:/var/www/shared:delegated
             - ./src:/var/www/src:cached
-        container_name: replaceme.test
+        container_name: js-school-wp.test
 
     php:
         build: ./docker/php/
@@ -31,7 +31,7 @@ services:
             - ./src:/var/www/src:cached
 
     db:
-        image: mysql:5.6
+        image: mariadb:10.10.2
         ports:
             - 3306:3306
         volumes:

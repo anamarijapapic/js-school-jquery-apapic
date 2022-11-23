@@ -1,10 +1,10 @@
 {
-    "name": "agilo/web-starter",
-    "description": "Agilo Web Starter",
+    "name": "agilo/js-school-wp",
+    "description": "JS School WordPress",
     "authors": [
         {
-            "name": "Ivo Limić",
-            "email": "ivo@agilo.co"
+            "name": "Anamarija Papić",
+            "email": "anamarija.papic@agilo.co"
         }
     ],
     "config": {
@@ -15,23 +15,11 @@
         {
           "type":"composer",
           "url":"http://wpackagist.org"
-        },
-        {
-          "type": "package",
-          "package": {
-            "dist": {
-              "type": "zip",
-              "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NTgyNzJ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE1LTA2LTE3IDEzOjExOjMz&t=5.12.3"
-            },
-            "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "type": "wordpress-plugin",
-            "version": "5.12.3"
-          }
         }
     ],
     "require": {
         "drupal-composer/preserve-paths": "^0.1.4",
-        "johnpbloch/wordpress": "6.0.0",
+        "johnpbloch/wordpress": "6.1.1",
         "wpackagist-plugin/query-monitor":"*",
         "wpackagist-plugin/wp-crontrol":"*"
     },

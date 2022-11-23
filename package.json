@@ -9,16 +9,13 @@
     "build": "node node_modules/@runforest/run/index.js build",
     "watch": "node node_modules/@runforest/run/index.js watch",
     "build:wordpress": "node node_modules/@runforest/run/index.js build:wordpress",
-    "build:wpengine": "node node_modules/@runforest/run/index.js build:wpengine --verbose",
-    "watch:wordpress": "node node_modules/@runforest/run/index.js watch:wordpress",
-    "deploy:staging": "node node_modules/@runforest/run/index.js deploy:staging --verbose",
-    "deploy:production": "node node_modules/@runforest/run/index.js deploy:production --verbose"
+    "watch:wordpress": "node node_modules/@runforest/run/index.js watch:wordpress"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@gitlab.com:_agilo/backend-internship/web-starter.git"
   },
-  "author": "ivo@agilo.com",
+  "author": "anamarija.papic@agilo.com",
   "license": "ISC",
   "homepage": "https://gitlab.com/_agilo/backend-internship/web-starter",
   "dependencies": {

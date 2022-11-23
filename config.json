@@ -16,7 +16,7 @@
     "wordpress": [
       {
         "source": "src/html",
-        "destination": "public/wp-content/themes/replaceme/assets",
+        "destination": "public/wp-content/themes/js-school-wp/assets",
         "globPattern": ["!**/*.{php,html}"]
       }
     ]
@@ -31,11 +31,11 @@
     "wordpress": [
       {
         "source": "src/html/sass/main.scss",
-        "destination": "public/wp-content/themes/replaceme/assets/css"
+        "destination": "public/wp-content/themes/js-school-wp/assets/css"
       },
       {
         "source": "src/html/sass/main-block-editor.scss",
-        "destination": "public/wp-content/themes/replaceme/assets/css",
+        "destination": "public/wp-content/themes/js-school-wp/assets/css",
         "additionalSourcesToWatch": [
           "src/html/sass/main.scss"
         ]
@@ -58,7 +58,7 @@
     "wordpress": [
       {
         "source": "src/html/js/main.js",
-        "destination": "public/wp-content/themes/replaceme/assets/js",
+        "destination": "public/wp-content/themes/js-school-wp/assets/js",
         "globals": {
           "jquery": "window.jQuery"
         },
@@ -78,7 +78,7 @@
     "wordpress": [
       {
         "source": "src/html/svg/",
-        "destination": "public/wp-content/themes/replaceme/assets/sprite"
+        "destination": "public/wp-content/themes/js-school-wp/assets/sprite"
       }
     ]
   },
@@ -93,49 +93,22 @@
           "wp-content/plugins/hello.php"
         ]
       }
-    ],
-    "wpengine": [
-      {
-        "localComposer": true,
-        "symlinkedBuild": false,
-        "remove": [
-          ".htaccess",
-          "wp-config.php",
-          "html/",
-          "**/readme.txt",
-          "**/license.txt",
-          "wp-content/uploads",
-          "wp-content/plugins/hello.php"
-        ]
-      }
     ]
   },
   "i18n": {
     "wordpress" : [
       {
-        "source": "src/wp-content/themes/replaceme",
-        "destination": "public/wp-content/themes/replaceme/languages",
-        "domain": "replaceme",
+        "source": "src/wp-content/themes/js-school-wp",
+        "destination": "public/wp-content/themes/js-school-wp/languages",
+        "domain": "js-school-wp",
         "package": "Replace Me"
-      }
-    ]
-  },
-  "gitdeploy":{
-    "production": [
-      {
-        "target": "git@git.wpengine.com:production/replaceme.git"
-      }
-    ],
-    "staging": [
-      {
-        "target": "git@git.wpengine.com:production/replacemestg.git"
       }
     ]
   },
   "devcert": {
     "default": [
       {
-        "domain": "replaceme.test",
+        "domain": "js-school-wp.test",
         "keyDestination": "docker/nginx/ssl/key.pem",
         "certDestination": "docker/nginx/ssl/cert.pem",
         "caDestination": "docker/php/certificate-authority/certificate.cert"
@@ -176,27 +149,6 @@
           "i18n:wordpress"
         ]
       }
-    ],
-    "watch:wordpress": {
-      "parallel": [
-        "html:wordpress@watch",
-        "sass:wordpress@watch",
-        "js:wordpress@watch",
-        "svg:wordpress@watch"
-      ]
-    },
-    "build:wpengine": [
-      "wordpress:wpengine",
-      "html:wordpress",
-      "sass:wordpress",
-      "js:wordpress",
-      "svg:wordpress"
-    ],
-    "deploy:staging": [
-      "gitdeploy:staging"
-    ],
-    "deploy:production": [
-      "gitdeploy:production"
     ]
   }
 }
