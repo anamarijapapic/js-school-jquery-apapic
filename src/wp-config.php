@@ -14,6 +14,10 @@
 * @package WordPress
 */
 
+/**
+ * Include the autoloader
+ */
+require ABSPATH . '/wp-content/themes/js-school-wp/autoload.php';
 
 /**
  * DB settings
