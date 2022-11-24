@@ -15,13 +15,34 @@
         {
           "type":"composer",
           "url":"http://wpackagist.org"
+        },
+        {
+            "type": "package",
+            "package": {
+              "dist": {
+                "type": "zip",
+                "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9OTI4Mjl8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE2LTExLTAxIDIxOjE5OjM4&t=6.0.5"
+              },
+              "name": "advanced-custom-fields/advanced-custom-fields-pro",
+              "type": "wordpress-plugin",
+              "version": "6.0.5"
+            }
         }
     ],
     "require": {
+        "advanced-custom-fields/advanced-custom-fields-pro": "6.0.5",
         "drupal-composer/preserve-paths": "^0.1.4",
         "johnpbloch/wordpress": "6.1.1",
-        "wpackagist-plugin/query-monitor":"*",
-        "wpackagist-plugin/wp-crontrol":"*"
+        "wpackagist-plugin/query-monitor": "*",
+        "wpackagist-plugin/wp-crontrol": "*",
+        "wpackagist-plugin/classic-editor": "^1.6",
+        "wpackagist-plugin/debug-bar": "^1.1",
+        "wpackagist-plugin/debug-bar-actions-and-filters-addon": "^1.5",
+        "wpackagist-plugin/debug-bar-rewrite-rules": "^0.6.5",
+        "wpackagist-plugin/duplicate-post": "^4.5",
+        "wpackagist-plugin/svg-support": "^2.5",
+        "wpackagist-plugin/wp-migrate-db": "^2.5",
+        "wpackagist-plugin/wordpress-seo": "^19.10"
     },
     "extra": {
         "wordpress-install-dir": "public",
