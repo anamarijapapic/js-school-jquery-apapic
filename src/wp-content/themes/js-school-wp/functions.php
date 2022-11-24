@@ -143,3 +143,5 @@ function js_school_wp_scripts() {
 	wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', [ 'jquery' ], null, true );
 }
 add_action( 'wp_enqueue_scripts', 'js_school_wp_scripts' );
+
+require_once __DIR__ . '/inc/inc.php';
