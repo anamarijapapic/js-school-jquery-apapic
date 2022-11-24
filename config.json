@@ -101,7 +101,8 @@
         "source": "src/wp-content/themes/js-school-wp",
         "destination": "public/wp-content/themes/js-school-wp/languages",
         "domain": "js-school-wp",
-        "package": "Replace Me"
+        "package": "Js_School_WP",
+        "team": "Agilo <info@agilo.co>"
       }
     ]
   },
@@ -149,6 +150,14 @@
           "i18n:wordpress"
         ]
       }
-    ]
+    ],
+    "watch:wordpress": {
+      "parallel": [
+        "html:wordpress@watch",
+        "sass:wordpress@watch",
+        "js:wordpress@watch",
+        "svg:wordpress@watch"
+      ]
+    }
   }
 }
