@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package JS_School
+ * @package JS_School_WP
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
@@ -19,14 +19,14 @@ if ( ! defined( '_S_VERSION' ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function js_school_setup() {
+function js_school_wp_setup() {
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.
 		* If you're building a theme based on JS School, use a find and replace
-		* to change 'js-school' to the name of your theme in all the template files.
+		* to change 'js-school-wp' to the name of your theme in all the template files.
 		*/
-	load_theme_textdomain( 'js-school', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'js-school-wp', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -49,7 +49,7 @@ function js_school_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'js-school' ),
+			'menu-1' => esc_html__( 'Primary', 'js-school-wp' ),
 		)
 	);
 
@@ -74,7 +74,7 @@ function js_school_setup() {
 	add_theme_support(
 		'custom-background',
 		apply_filters(
-			'js_school_custom_background_args',
+			'js_school_wp_custom_background_args',
 			array(
 				'default-color' => 'ffffff',
 				'default-image' => '',
@@ -100,7 +100,7 @@ function js_school_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'js_school_setup' );
+add_action( 'after_setup_theme', 'js_school_wp_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -109,22 +109,22 @@ add_action( 'after_setup_theme', 'js_school_setup' );
  *
  * @global int $content_width
  */
-function js_school_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'js_school_content_width', 640 );
+function js_school_wp_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'js_school_wp_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'js_school_content_width', 0 );
+add_action( 'after_setup_theme', 'js_school_wp_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function js_school_widgets_init() {
+function js_school_wp_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'js-school' ),
+			'name'          => esc_html__( 'Sidebar', 'js-school-wp' ),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'js-school' ),
+			'description'   => esc_html__( 'Add widgets here.', 'js-school-wp' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -132,12 +132,12 @@ function js_school_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'js_school_widgets_init' );
+add_action( 'widgets_init', 'js_school_wp_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function js_school_scripts() {
-	wp_enqueue_style( 'js-school-style', get_stylesheet_uri(), array(), _S_VERSION );
+function js_school_wp_scripts() {
+	wp_enqueue_style( 'js-school-wp-style', get_stylesheet_uri(), array(), _S_VERSION );
 }
-add_action( 'wp_enqueue_scripts', 'js_school_scripts' );
+add_action( 'wp_enqueue_scripts', 'js_school_wp_scripts' );

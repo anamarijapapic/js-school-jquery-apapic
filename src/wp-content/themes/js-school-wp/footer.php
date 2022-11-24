@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package JS_School
+ * @package JS_School_WP
  */
 
 ?>

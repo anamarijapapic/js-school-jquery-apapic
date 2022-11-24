@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package JS_School
+ * @package JS_School_WP
  */
 
 get_header();

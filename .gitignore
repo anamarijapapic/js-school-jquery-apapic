@@ -20,3 +20,4 @@ node_modules/
 /provisioning/playbook.retry
 /docker/data/
 /.env
+/src/wp-content/themes/js-school-wp/assets
