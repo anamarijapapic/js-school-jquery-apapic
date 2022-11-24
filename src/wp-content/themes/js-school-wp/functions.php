@@ -1,4 +1,7 @@
 <?php
+
+use JsSchoolWp\Utilities\Utilities;
+
 /**
  * JS School functions and definitions
  *
@@ -6,11 +9,6 @@
  *
  * @package JS_School_WP
  */
-
-if ( ! defined( '_S_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
-}
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -138,6 +136,10 @@ add_action( 'widgets_init', 'js_school_wp_widgets_init' );
  * Enqueue scripts and styles.
  */
 function js_school_wp_scripts() {
-	wp_enqueue_style( 'js-school-wp-style', get_stylesheet_uri(), array(), _S_VERSION );
+	Utilities::wp_enqueue_style( 'js-school-wp-styles', 'assets/css/main.css', false, 'all' );
+	wp_enqueue_style( 'bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css');
+	
+	Utilities::wp_enqueue_script( 'js-school-wp-scripts', 'assets/js/main.js', [ 'jquery' ], true );
+	wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', [ 'jquery' ], null, true );
 }
 add_action( 'wp_enqueue_scripts', 'js_school_wp_scripts' );
