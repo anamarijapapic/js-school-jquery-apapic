@@ -138,6 +138,7 @@ add_action( 'widgets_init', 'js_school_wp_widgets_init' );
 function js_school_wp_scripts() {
 	Utilities::wp_enqueue_style( 'js-school-wp-styles', 'assets/css/main.css', false, 'all' );
 	wp_enqueue_style( 'bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css');
+	wp_enqueue_style( 'bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css');
 	
 	Utilities::wp_enqueue_script( 'js-school-wp-scripts', 'assets/js/main.js', [ 'jquery' ], true );
 	wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', [ 'jquery' ], null, true );
