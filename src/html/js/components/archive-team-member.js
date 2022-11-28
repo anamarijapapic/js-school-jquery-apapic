@@ -35,6 +35,17 @@ $( function() {
         const $row = $archive.find( '.js-team-member-archive__row' );
         let xhr;
 
+        $( window ).on( 'scroll', function() {
+            if ( $( '.variant1' ).hasClass( 'active' ) && ! allDisplayed) {
+                var scrollHeight = $( document ).height();
+                var scrollPos = $( window ).height() + $( window ).scrollTop();
+
+                if ( ( ( scrollHeight - 300 ) >= scrollPos ) / scrollHeight == 0 ) {
+                    $loadMoreBtn.trigger( 'click' );
+                }
+            }
+        } );
+
         $loadMoreBtn.on( 'click', function ( e ) {
             e.preventDefault();
 
