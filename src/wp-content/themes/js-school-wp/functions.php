@@ -142,6 +142,10 @@ function js_school_wp_scripts() {
 	
 	Utilities::wp_enqueue_script( 'js-school-wp-scripts', 'assets/js/main.js', [ 'jquery' ], true );
 	wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', [ 'jquery' ], null, true );
+
+	wp_localize_script( 'js-school-wp-scripts', 'js_school_wp', [
+		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+	] );
 }
 add_action( 'wp_enqueue_scripts', 'js_school_wp_scripts' );
 
