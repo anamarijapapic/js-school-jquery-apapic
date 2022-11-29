@@ -50,7 +50,10 @@ get_header();
                     </svg>
                 </div>
                 <h3 class="fs-2">Stackoverflow tags</h3>
-                <a href="#" class="icon-link d-inline-flex align-items-center">
+                <a 
+                    href="<?php echo esc_url( get_post_type_archive_link( 'post' ) ); ?>" 
+                    class="icon-link d-inline-flex align-items-center"
+                >
                     Go to page <i class="bi bi-chevron-right"></i>
                 </a>
             </div>
