@@ -1,0 +1,21 @@
+.custom-popover {
+    --bs-popover-max-width: 360px !important;
+    --bs-popover-border-color: var(--bs-gray-dark) !important;
+    --bs-popover-border-radius: 0px !important;
+    --bs-popover-inner-border-radius: 0px !important;
+    --bs-popover-header-padding-x: .25rem !important;
+    --bs-popover-header-bg: var(--bs-gray-dark) !important;
+    --bs-popover-header-color: var(--bs-light) !important;
+    --bs-popover-bg: var(--bs-gray-dark) !important;
+    --bs-popover-body-color:  var(--bs-light) !important;
+    --bs-popover-arrow-width: 0px !important;
+    --bs-popover-arrow-height: 0px !important;
+    --bs-popover-arrow-border: none !important;
+}
+
+.popover-header {
+    --bs-text-opacity: .25;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border-bottom: 1px solid rgba(var(--bs-light-rgb), var(--bs-text-opacity)) !important;
+}

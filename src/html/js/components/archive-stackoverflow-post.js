@@ -21,6 +21,7 @@ $( function() {
                 el.popover( {
                     container: 'body',
                     content: ' ',
+                    customClass: 'custom-popover',
                     html: true,
                     placement: 'bottom',
                     trigger: 'hover',
