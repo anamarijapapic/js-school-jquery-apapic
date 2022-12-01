@@ -5,7 +5,7 @@ function js_school_wp_handle_ajax_load_stackoverflow_tag_data() : void {
     
 	$my_term = get_term_by( 'name', $tag_name, 'post_tag' );
 
-    $followers = get_field( 'followers', $my_term );
+    $followers = get_field( 'followers', $my_term ) ?? 0;
     $questions = $my_term->count;
     $description = term_description( $my_term->term_id );
 

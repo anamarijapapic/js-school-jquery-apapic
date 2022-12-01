@@ -46,18 +46,16 @@ $( function() {
             },
             success: function( data ) {
 
-                el.popover( {
+                var tags = $( '[data-tag="' + el.data( 'tag' ) + '"]' );
+
+                tags.popover( {
                     container: 'body',
-                    content: ' ',
+                    content: data.popover_body,
                     customClass: 'custom-popover',
                     html: true,
                     placement: 'bottom',
+                    title: data.popover_header,
                     trigger: 'hover',
-                } );
-
-                bootstrap.Popover.getOrCreateInstance( el ).setContent( {
-                    '.popover-header': data.popover_header,
-                    '.popover-body': data.popover_body,
                 } );
 
                 el.popover( 'show' );

@@ -21,7 +21,11 @@ $tags = get_the_terms( $post, 'post_tag' ) ? get_the_terms( $post, 'post_tag' ) 
                         href="<?php echo esc_url( get_term_link( $tag ) ); ?>" 
                         class="text-decoration-none"
                     >
-                        <div class="bg-primary bg-opacity-25 border link-primary px-1" data-bs-toggle="popover">
+                        <div 
+                            class="bg-primary bg-opacity-25 border link-primary px-1" 
+                            data-tag="<?php echo esc_html( $tag->name ) ?>" 
+                            data-bs-toggle="popover"
+                        >
                             <?php echo esc_html( $tag->name ); ?>
                         </div>
                     </a>
