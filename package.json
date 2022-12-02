@@ -24,7 +24,7 @@
     "@runforest/gitdeploy": "^3.0.0",
     "@runforest/html": "^2.0.0",
     "@runforest/i18n": "^2.0.0",
-    "@runforest/js": "^3.2.0",
+    "@runforest/js": "^3.3.1",
     "@runforest/run": "^2.0.0",
     "@runforest/sass": "^2.2.1",
     "@runforest/svg": "^2.0.0",
