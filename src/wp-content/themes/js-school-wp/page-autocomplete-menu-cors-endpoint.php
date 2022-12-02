@@ -32,7 +32,18 @@ get_header();
 
                     <input class="form-control form-control-lg mb-3" type="tel" name="phone" id="phone" placeholder="Phone Number">
 
-                    <input class="form-control form-control-lg mb-3" type="text" name="organization" id="list" placeholder="Organization">
+                    <div class="autocomplete mb-3">
+                        <input class="form-control form-control-lg" type="text" name="organization" id="list" placeholder="Organization" autocomplete="off">
+                        <div id="autocomplete-menu">
+                            <div class="list-group">
+                                <li class="list-group-item d-none" id="loadingAnimation">
+                                    <span class="spinner-grow spinner-grow-sm text-secondary" role="status" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Loading...</span>
+                                </li>
+                                <!-- <button type="button" class="list-group-item list-group-item-action">A button item</button> -->
+                            </div>
+                        </div>
+                    </div>
 
                     <select class="form-select form-select-lg mb-3" name="organizationType" id="organizationType">
                         <option selected>Organization Type</option>
