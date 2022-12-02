@@ -65,7 +65,10 @@ get_header();
                     </svg>
                 </div>
                 <h3 class="fs-2">Autocomplete menu & CORS endpoint</h3>
-                <a href="#" class="icon-link d-inline-flex align-items-center">
+                <a 
+                    href="<?php echo esc_url( get_permalink( get_page_by_path( 'autocomplete-menu-cors-endpoint' ) ) ); ?>" 
+                    class="icon-link d-inline-flex align-items-center"
+                >
                     Go to page <i class="bi bi-chevron-right"></i>
                 </a>
             </div>
