@@ -40,7 +40,6 @@ get_header();
                                     <span class="spinner-grow spinner-grow-sm text-secondary" role="status" aria-hidden="true"></span>
                                     <span class="visually-hidden">Loading...</span>
                                 </li>
-                                <!-- <button type="button" class="list-group-item list-group-item-action">A button item</button> -->
                             </div>
                         </div>
                     </div>

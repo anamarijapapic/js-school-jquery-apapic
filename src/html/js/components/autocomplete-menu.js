@@ -2,44 +2,52 @@ import $ from 'jquery';
 
 $( function() {
 
-    var globalTimeout = null;  
+    var globalTimeout = null;
+
+    var currentXhr;
 
     $( "#list" ).on( 'keyup', function() {
+        
+        currentXhr && currentXhr.readyState != 4 && currentXhr.abort(); // clear previous request
 
         var value = $( this ).val();
-
+        
         if ( value.length > 1 ) {
+            
             if ( globalTimeout != null ) {
                 clearTimeout( globalTimeout );
             }
             globalTimeout = setTimeout( function() {
-                globalTimeout = null;  
-
+                globalTimeout = null;
+                
                 //ajax code
-                $.ajax({
+                currentXhr = $.ajax({
                     url: window.ajaxurl,
                     data: {
                         action: 'js_school_wp_load_autocomplete',
                         keyword: value,
                     },
                     beforeSend: function() {
+                        $( '#autocomplete-menu' ).show();
                         $( '#loadingAnimation' ).removeClass( 'd-none' );
                         $( '#loadingAnimation' ).addClass( 'd-block' );
                     },
                     success: function( data ) {
-                        $( '#autocomplete-menu > .list-group' ).not( '#loadingAnimation' ).empty();
+                        $( '#autocomplete-menu > .list-group > .list-group-item' ).not( '#loadingAnimation' ).remove();
                         $( '#autocomplete-menu > .list-group' ).append( data.data );
-                    },
-                    complete: function() {
                         $( '#loadingAnimation' ).removeClass( 'd-block' );
                         $( '#loadingAnimation' ).addClass( 'd-none' );
+                    },
+                    complete: function() {
+                        // ajax request completed
                     }
                 });
 
             }, 300 );  
         }
         else {
-            $( '#autocomplete-menu' ).show();
+            $( '#autocomplete-menu' ).hide();
+            $( '#autocomplete-menu > .list-group > .list-group-item' ).not( '#loadingAnimation' ).remove();
             $( '#loadingAnimation' ).removeClass( 'd-block' );
             $( '#loadingAnimation' ).addClass( 'd-none' );
         }
