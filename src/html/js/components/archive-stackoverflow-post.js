@@ -28,7 +28,7 @@ $( function() {
         var tag_name = el.text().trim();
 
         $.ajax( {
-            url: window.ajaxurl, 
+            url: window.js_school_wp.ajaxUrl, 
             data: {
                 action: 'js_school_wp_load_stackoverflow_tag_data',
                 tag_name: tag_name,

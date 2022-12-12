@@ -61,7 +61,7 @@ $( function() {
             const currentPage = $archive.data( 'current-page' ) || 1;
 
             xhr = $.ajax( {
-                url: window.ajaxurl, // window.js_school_wp.ajaxUrl
+                url: window.js_school_wp.ajaxUrl,
                 data: {
                     action: 'js_school_wp_load_more_team_members',
                     js_school_wp_page: currentPage + 1,

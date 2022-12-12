@@ -22,7 +22,7 @@ $( function() {
                 
                 //ajax code
                 currentXhr = $.ajax({
-                    url: window.ajaxurl,
+                    url: window.js_school_wp.ajaxUrl,
                     data: {
                         action: 'js_school_wp_load_autocomplete',
                         keyword: value,
