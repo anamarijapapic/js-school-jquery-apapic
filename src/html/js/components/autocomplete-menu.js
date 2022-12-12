@@ -33,8 +33,9 @@ $( function() {
                         $( '#loadingAnimation' ).addClass( 'd-block' );
                     },
                     success: function( data ) {
+                        // console.log( data.data );
                         $( '#autocomplete-menu > .list-group > .list-group-item' ).not( '#loadingAnimation' ).remove();
-                        $( '#autocomplete-menu > .list-group' ).append( data.data );
+                        $( '#autocomplete-menu > .list-group' ).append( data.html );
                         $( '#loadingAnimation' ).removeClass( 'd-block' );
                         $( '#loadingAnimation' ).addClass( 'd-none' );
                     },

@@ -15,11 +15,24 @@ function js_school_wp_handle_ajax_load_autocomplete() : void {
 
 	$html = '';
 
+	$organizations_json = [];
 	if ( $query->have_posts() ) {
 		foreach ( $query->posts as $post ) {
-            $escaped_organization_name = json_encode( $post->post_title );
-			$html .= "<button type='button' class='list-group-item list-group-item-action' onclick='selectOrganization($escaped_organization_name);'>{$post->post_title}</button>";
+			array_push( $organizations_json, [
+				'id'   => $post->ID,
+				'name' => $post->post_title,
+				'date_published' => $post->post_date,
+				'date_modified'  => $post->post_modified,
+			] );
 		}
+	}
+
+	usort( $organizations_json, function( $a, $b ) { return strnatcasecmp( $a['name'], $b['name'] ); } );
+
+	foreach ( $organizations_json as $post ) {
+		$organization_name = get_the_title( $post['id'] );
+		$escaped_organization_name = json_encode( $organization_name );
+		$html .= "<button type='button' class='list-group-item list-group-item-action' onclick='selectOrganization($escaped_organization_name);'>{$organization_name}</button>";
 	}
 
 	wp_send_json( [
@@ -28,7 +41,8 @@ function js_school_wp_handle_ajax_load_autocomplete() : void {
 		'post_count'  => $query->post_count,
 		'found_posts' => $query->found_posts,
 		'max_page' 	  => $query->max_num_pages,
-		'data'    	  => $html,
+		'html'    	  => $html,
+		'data'		  => $organizations_json,
 	], 200 );
 }
 add_action( 'wp_ajax_nopriv_js_school_wp_load_autocomplete', 'js_school_wp_handle_ajax_load_autocomplete' );
