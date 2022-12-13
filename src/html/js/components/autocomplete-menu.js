@@ -22,10 +22,11 @@ $( function() {
                 
                 //ajax code
                 currentXhr = $.ajax({
-                    url: window.js_school_wp.ajaxUrl,
+                    url: 'https://js-school-wp.test/wp-admin/admin-ajax.php',
                     data: {
                         action: 'js_school_wp_load_autocomplete',
                         keyword: value,
+                        blog_id: $( '#blog-info' ).data( 'blogid' ),
                     },
                     beforeSend: function() {
                         $( '#autocomplete-menu' ).show();

@@ -142,6 +142,10 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 
 define( 'COOKIE_DOMAIN', $_SERVER['HTTP_HOST'] );
 
+/* Subsite IDs */
+define( 'JS_SCHOOL_WP_1_SUBSITE_ID', 1 );
+define( 'JS_SCHOOL_WP_2_SUBSITE_ID', 2 );
+
 /* That's all, stop editing! Happy blogging. */
 
 /**
