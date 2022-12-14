@@ -1,10 +1,42 @@
 import $ from 'jquery';
 
+const autocompleteInputField = $( '.js-autocomplete-input-field' );
+const autocompleteMenu = $( '.js-autocomplete-menu' );
+const loader = $( '.js-loading-animation' );
+const listGroup =  $( '.js-autocomplete-menu > .list-group' );
+
+function showAutocompleteMenu() {
+    autocompleteMenu.show();
+    showLoadingAnimation();
+}
+
+function populateAutocompleteMenu( data ) {
+    listGroup.find( '.list-group-item' ).not( loader ).remove();
+    listGroup.append( data );
+    hideLoadingAnimation();
+}
+
+function hideAutocompleteMenu() {
+    autocompleteMenu.hide();
+    listGroup.find( '.list-group-item' ).not( loader ).remove();
+    hideLoadingAnimation();
+}
+
+function showLoadingAnimation() {
+    loader.removeClass( 'd-none' );
+    loader.addClass( 'd-block' );
+}
+
+function hideLoadingAnimation() {
+    loader.removeClass( 'd-block' );
+    loader.addClass( 'd-none' );
+}
+
 let globalTimeout = null;
 
 let currentXhr;
 
-$( '#list' ).on( 'keyup', function() {
+autocompleteInputField.on( 'keyup', function() {
     
     currentXhr && currentXhr.readyState != 4 && currentXhr.abort(); // clear previous request
 
@@ -27,16 +59,11 @@ $( '#list' ).on( 'keyup', function() {
                     blog_id: window.js_school_wp.blog_id,
                 },
                 beforeSend: function() {
-                    $( '#autocomplete-menu' ).show();
-                    $( '#loadingAnimation' ).removeClass( 'd-none' );
-                    $( '#loadingAnimation' ).addClass( 'd-block' );
+                    showAutocompleteMenu();
                 },
                 success: function( data ) {
                     // console.log( data.data );
-                    $( '#autocomplete-menu > .list-group > .list-group-item' ).not( '#loadingAnimation' ).remove();
-                    $( '#autocomplete-menu > .list-group' ).append( data.html );
-                    $( '#loadingAnimation' ).removeClass( 'd-block' );
-                    $( '#loadingAnimation' ).addClass( 'd-none' );
+                    populateAutocompleteMenu( data.html );
                 },
                 complete: function() {
                     // ajax request completed
@@ -46,15 +73,12 @@ $( '#list' ).on( 'keyup', function() {
         }, 300 );  
     }
     else {
-        $( '#autocomplete-menu' ).hide();
-        $( '#autocomplete-menu > .list-group > .list-group-item' ).not( '#loadingAnimation' ).remove();
-        $( '#loadingAnimation' ).removeClass( 'd-block' );
-        $( '#loadingAnimation' ).addClass( 'd-none' );
+        hideAutocompleteMenu();
     }
 
 } );
 
 window.selectOrganization = function( val ) {
-    $( '#list' ).val( val );
-    $( '#autocomplete-menu' ).hide();
+    autocompleteInputField.val( val );
+    hideAutocompleteMenu();
 }

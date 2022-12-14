@@ -32,11 +32,14 @@ get_header();
 
                     <input class="form-control form-control-lg mb-3" type="tel" name="phone" id="phone" placeholder="Phone Number">
 
-                    <div class="autocomplete mb-3">
-                        <input class="form-control form-control-lg" type="text" name="organization" id="list" placeholder="Organization" autocomplete="off">
-                        <div id="autocomplete-menu">
+                    <div class="autocomplete js-autocomplete mb-3">
+                        <input 
+                            class="form-control form-control-lg autocomplete-input-field js-autocomplete-input-field" 
+                            type="text" name="organization" id="list" placeholder="Organization" autocomplete="off"
+                        >
+                        <div class="autocomplete-menu js-autocomplete-menu">
                             <div class="list-group">
-                                <li class="list-group-item d-none" id="loadingAnimation">
+                                <li class="list-group-item d-none loading-animation js-loading-animation">
                                     <span class="spinner-grow spinner-grow-sm text-secondary" role="status" aria-hidden="true"></span>
                                     <span class="visually-hidden">Loading...</span>
                                 </li>
