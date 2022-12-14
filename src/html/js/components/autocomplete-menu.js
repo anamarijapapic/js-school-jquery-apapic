@@ -24,7 +24,7 @@ $( '#list' ).on( 'keyup', function() {
                 data: {
                     action: 'js_school_wp_load_autocomplete',
                     keyword: value,
-                    blog_id: $( '#blog-info' ).data( 'blogid' ),
+                    blog_id: window.js_school_wp.blog_id,
                 },
                 beforeSend: function() {
                     $( '#autocomplete-menu' ).show();

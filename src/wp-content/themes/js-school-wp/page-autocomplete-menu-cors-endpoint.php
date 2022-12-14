@@ -12,7 +12,7 @@ get_header();
 
 ?>
 
-<div class="container-fluid bg-secondary bg-opacity-10" id="blog-info" data-blogid="<?php echo esc_attr( get_current_blog_id() ); ?>">
+<div class="container-fluid bg-secondary bg-opacity-10">
     <div class="container p-5">
         <h1 class="display-5 text-uppercase fw-bold">Make the digital connection</h1>
         <p class="lead text-muted">
