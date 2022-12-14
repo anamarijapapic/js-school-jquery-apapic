@@ -20,7 +20,7 @@ $( '#list' ).on( 'keyup', function() {
             
             //ajax code
             currentXhr = $.ajax( {
-                url: 'https://js-school-wp.test/wp-admin/admin-ajax.php',
+                url: window.js_school_wp.ajaxUrlSubsite1,
                 data: {
                     action: 'js_school_wp_load_autocomplete',
                     keyword: value,

@@ -144,7 +144,9 @@ function js_school_wp_scripts() {
 	wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', [ 'jquery' ], null, true );
 
 	wp_localize_script( 'js-school-wp-scripts', 'js_school_wp', [
-		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+		'ajaxUrl' => admin_url( 'admin-ajax.php' ), // current subsite ajax url
+		'ajaxUrlSubsite1' => get_admin_url( JS_SCHOOL_WP_1_SUBSITE_ID, 'admin-ajax.php' ), // subsite 1 ajax url
+		'ajaxUrlSubsite2' => get_admin_url( JS_SCHOOL_WP_2_SUBSITE_ID, 'admin-ajax.php' ), // subsite 2 ajax url
 	] );
 }
 add_action( 'wp_enqueue_scripts', 'js_school_wp_scripts' );
