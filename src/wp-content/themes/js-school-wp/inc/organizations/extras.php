@@ -27,8 +27,7 @@ function js_school_wp_handle_ajax_load_autocomplete() : void {
 			] );
 
 			$organization_name = get_the_title( $post->ID );
-			$escaped_organization_name = json_encode( $organization_name );
-			$html .= "<button type='button' class='list-group-item list-group-item-action' onclick='selectOrganization($escaped_organization_name);'>{$organization_name}</button>";
+			$html .= "<button type='button' class='list-group-item list-group-item-action'>{$organization_name}</button>";
 		}
 	}
 
