@@ -140,8 +140,9 @@ function js_school_wp_scripts() {
 	wp_enqueue_style( 'bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css');
 	wp_enqueue_style( 'bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css');
 	
-	Utilities::wp_enqueue_script( 'js-school-wp-scripts', 'assets/js/main.js', [ 'jquery' ], true );
+	Utilities::wp_enqueue_script( 'js-school-wp-scripts', 'assets/js/main.js', [ 'jquery', 'lodash-js' ], true );
 	wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', [ 'jquery' ], null, true );
+	wp_enqueue_script( 'lodash-js', 'https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js', [ 'jquery' ], null, true );
 
 	wp_localize_script( 'js-school-wp-scripts', 'js_school_wp', [
 		'ajaxUrl' => admin_url( 'admin-ajax.php' ), // current subsite ajax url
