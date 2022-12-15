@@ -11,7 +11,7 @@ services:
             - ./public:/var/www/html:cached
             - ./shared:/var/www/shared:delegated
             - ./src:/var/www/src:cached
-        container_name: js-school-wp.test
+        container_name: js-school-wp-1.test
 
     php:
         build: ./docker/php/

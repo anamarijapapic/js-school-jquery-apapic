@@ -109,7 +109,7 @@
   "devcert": {
     "default": [
       {
-        "domain": "js-school-wp.test",
+        "domain": "js-school-wp-1.test",
         "keyDestination": "docker/nginx/ssl/key.pem",
         "certDestination": "docker/nginx/ssl/cert.pem",
         "caDestination": "docker/php/certificate-authority/certificate.cert"
