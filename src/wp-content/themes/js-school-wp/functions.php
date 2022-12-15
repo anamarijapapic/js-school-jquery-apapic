@@ -148,7 +148,6 @@ function js_school_wp_scripts() {
 		'ajaxUrl' => admin_url( 'admin-ajax.php' ), // current subsite ajax url
 		'ajaxUrlSubsite1' => get_admin_url( JS_SCHOOL_WP_1_SUBSITE_ID, 'admin-ajax.php' ), // subsite 1 ajax url
 		'ajaxUrlSubsite2' => get_admin_url( JS_SCHOOL_WP_2_SUBSITE_ID, 'admin-ajax.php' ), // subsite 2 ajax url
-		'blog_id'		  => get_current_blog_id(),
 	] );
 }
 add_action( 'wp_enqueue_scripts', 'js_school_wp_scripts' );

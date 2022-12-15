@@ -3,7 +3,6 @@
 define( 'JS_SCHOOL_WP_ORGANIZATIONS_PER_PAGE', 10 );
 
 function js_school_wp_handle_ajax_load_autocomplete() : void {
-    $blog_id = (int) ( $_GET['blog_id'] ?? 1 );
 
 	$query = new WP_Query( [
 		'post_type'      => 'organization',
@@ -31,10 +30,11 @@ function js_school_wp_handle_ajax_load_autocomplete() : void {
 		}
 	}
 
-	if ( $blog_id === JS_SCHOOL_WP_2_SUBSITE_ID ) {
-		// Enable CORS - any domain
-		header( 'Access-Control-Allow-Origin: *' );
-	}
+	// Enable CORS - any domain
+	// header( 'Access-Control-Allow-Origin: *' );
+
+	// Enable CORS - specific domain
+	header( 'Access-Control-Allow-Origin: ' . get_site_url( JS_SCHOOL_WP_2_SUBSITE_ID ) );
 
 	wp_send_json( [
 		'success'     => true,
@@ -42,8 +42,8 @@ function js_school_wp_handle_ajax_load_autocomplete() : void {
 		'found_posts' => $query->found_posts,
 		'html'    	  => $html,
 		'data'		  => $organizations_json,
-		'blog_id'	  => $blog_id,
 	], 200 );
+
 }
 add_action( 'wp_ajax_nopriv_js_school_wp_load_autocomplete', 'js_school_wp_handle_ajax_load_autocomplete' );
 add_action( 'wp_ajax_js_school_wp_load_autocomplete', 'js_school_wp_handle_ajax_load_autocomplete' );
