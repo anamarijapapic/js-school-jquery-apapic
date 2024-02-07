@@ -19,7 +19,7 @@
   "license": "ISC",
   "homepage": "https://gitlab.com/_agilo/backend-internship/web-starter",
   "dependencies": {
-    "@runforest/devcert": "^1.0.0",
+    "@runforest/devcert": "^1.1.0",
     "@runforest/fs": "^2.0.0",
     "@runforest/gitdeploy": "^3.0.0",
     "@runforest/html": "^2.0.0",
